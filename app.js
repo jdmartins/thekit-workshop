@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var routes = require('./src/routes');
-var fileUpload = require('express-fileupload');
 var app = express();
 
 // view engine setup
@@ -31,7 +30,6 @@ app.use(
     saveUninitialized: true,
   })
 );
-app.use(fileUpload());
 
 app.use(routes, routes);
 
