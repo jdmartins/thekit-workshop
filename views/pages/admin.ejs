@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/navigation %>
+    <div class="container bg-color mt-5 ">
+      <div class="list-group">
+        <% locals.books.forEach(function(book) { %>
+          <div class="list-group-item list-group-item-action">
+            <div style="display: flex;" >
+              <strong><%=book.title%></strong>
+              &nbsp; <%=book.author%>
+              <a class="btn btn-primary" style="margin-left:auto; margin-right:16px"
+              href="#" id="updateBook" data-id="<%=book.id%>"
+              role="button">Update</a>
+              <a class="btn btn-danger removeBook"
+              href="#" data-id="<%=book.id%>"
+              role="button">Remove</a>
+            </div>
+          </div>
+        <%})%>
+      </div>
+    </div>
+</body>
+<script src="/javascripts/admin.js"></script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/navigation %>
+
+    <div class="container mt-5">
+      <h1>Add a book</h1>
+      <form id="bookForm" method="post" action="/admin/add">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="title">Title</label>
+            <input required type="title" class="form-control" name="title" placeholder="Book Tittle" value="<%=locals.title || ''%>" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="description">Description</label>
+            <textarea required class="form-control" name="description" rows="3" value="<%=locals.description || ''%>" ></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="description">Price</label>
+            <input required type="text" class="form-control" name="price" value="<%=locals.title || ''%>"  required/>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="description">Author</label>
+            <input required type="text" class="form-control" name="author" value="<%=locals.author || ''%>"/>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="description">Cover Image</label>
+            <input required type="url" class="form-control" name="cover" placeholder="http://www.example.com" value="<%=locals.cover || ''%>" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add my amazing book</button>
+      </form>
+    </div>
+</body>
+<script src="/javascripts/addBook.js "></script>
+
+</html>

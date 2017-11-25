@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/navigation %>
+  <div class="container bg-color mt-5 ">
+      <div class="card-columns mb-5 mt-5">
+    <% locals.books.forEach(function(book, index) { %>
+        <div class="card">
+          <img class="card-img-top" src="<%=book.cover%>" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><%=book.title%></h4>
+            <p class="card-text"><strong><%=book.author%></strong></p>
+            <p class="card-text line-clamp"><%=book.description%></p>
+          </div>
+        </div>
+     <% }) %>
+      </div>
+        <% if(numberOfPages > 1) {%>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <% for(var i = 0; i < numberOfPages; i++) {%>
+                <li class="page-item <%= i === Number(locals.page) ? 'active' : '' %>">
+                  <a class="page-link" href="?page=<%=i%>"><%=i + 1 %></a>
+                </li>
+              <% } %>
+            </ul>
+          </nav>
+        <% } %>
+    </div>
+
+</body>
+<script src="/javascripts/catalog.js"></script>
+</html>
